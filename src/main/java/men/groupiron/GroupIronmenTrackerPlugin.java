@@ -49,6 +49,7 @@ public class GroupIronmenTrackerPlugin extends Plugin {
     private static final int CHATBOX_ENTERED = 681;
     private static final int GROUP_STORAGE_LOADER = 293;
     private static final int COLLECTION_LOG_INVENTORYID = 620;
+    private static final int POH_WARDROBE_ID = 33405;
     private static final Pattern COLLECTION_LOG_ITEM_PATTERN = Pattern.compile("New item added to your collection log: (.*)");
     private boolean notificationStarted = false;
 
@@ -138,6 +139,8 @@ public class GroupIronmenTrackerPlugin extends Plugin {
             dataManager.getBank().update(new ItemContainerState(playerName, container, itemManager));
         } else if (id == InventoryID.SEED_VAULT.getId()) {
             dataManager.getSeedVault().update(new ItemContainerState(playerName, container, itemManager));
+        } else if (id == POH_WARDROBE_ID){
+            dataManager.getPohWardrobe().update(new ItemContainerState(playerName, container, itemManager));
         } else if (id == InventoryID.INVENTORY.getId()) {
             ItemContainerState newInventoryState = new ItemContainerState(playerName, container, itemManager, 28);
             if (itemsDeposited > 0) {

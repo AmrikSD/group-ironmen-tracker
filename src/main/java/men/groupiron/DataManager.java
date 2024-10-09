@@ -56,6 +56,8 @@ public class DataManager {
     @Getter
     private final DataState seedVault = new DataState("seed_vault", false);
     @Getter
+    private final DataState pohWardrobe = new DataState("poh_wardrobe", false);
+    @Getter
     private final DataState achievementDiary = new DataState("diary_vars", false);
     @Getter
     private final DepositedItems deposited = new DepositedItems();
@@ -101,6 +103,7 @@ public class DataManager {
             interacting.consumeState(updates);
             deposited.consumeState(updates);
             seedVault.consumeState(updates);
+            pohWardrobe.consumeState(updates);
             achievementDiary.consumeState(updates);
             collectionLogManager.consumeCollections(updates);
             collectionLogManager.consumeNewItems(updates);
@@ -172,6 +175,7 @@ public class DataManager {
         interacting.restoreState();
         deposited.restoreState();
         seedVault.restoreState();
+        pohWardrobe.restoreState();
         achievementDiary.restoreState();
         // collectionLogManager.restoreCollections();
         // collectionLogManager.restoreNewCollections();
